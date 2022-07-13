@@ -1,0 +1,42 @@
+@1.0
+- project start
+-- first time
+: npx create-react-native-app
+: npm run android
+
+-- from second time
+npm start
+: npm run android
+
+
+@2.1
+-app loading
+-- download
+: expo install expo-app-loading
+
+-- <AppLoading /> props
+startAsync -> calls first then calls onFinish
+onFinish -> calls when done loading
+
+@2.2
+- Using Icons (Fontassome , Ionicons)
+https://icons.expo.fyi/
+-- download font
+: expo install expo-font
+
+- preload images
+-- download aaset
+expo install expo-asset
+
+@2.3
+- Font, Image prefetch
+code : loading Assets
+    Font.loadAsync(font)
+    Image.prefetch(url)
+    Asset.loadAsync(require("path"))
+    await Promise.all([...fonts, ...images]);
+code : simpler loading assets
+     const [assets2] = useAssets([require("./splash2.png")]);
+     const [loaded] = Font.useFonts(Ionicons.font);
+     if (!assets2 || !loaded) return <AppLoading/>
+
