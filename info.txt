@@ -40,3 +40,19 @@ code : simpler loading assets
      const [loaded] = Font.useFonts(Ionicons.font);
      if (!assets2 || !loaded) return <AppLoading/>
 
+@2.4
+- Navigation ***
+https://reactnavigation.org/
+: npm install @react-navigation/native
+: npm install react-native-screens react-native-safe-area-context
+: npx pod-install ios (for ios)
+
+@2.5
+- tab navigation
+-- installing bottom navigation
+: npm install @react-navigation/bottom-tabs
+
+-- rule
+To render navigator, you have render navigation container first (just a rule)
+
+
