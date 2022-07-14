@@ -55,4 +55,14 @@ https://reactnavigation.org/
 -- rule
 To render navigator, you have render navigation container first (just a rule)
 
+@2.6
+- Tab Navigator props
+-- initalRouteName : first tab setting
 
+-- screenOptions : setting for all tabs
+   options : setting for only one tab
+        tabBarBadge , tabBarLabelPosition, tabBarlabelStyle, tabBarActiveTintColor ,tabBarInActiveTintColor 
+
+-- tabBarStyle : style for the bottom tab
+
+-- headerTitleStyle : style for the header
