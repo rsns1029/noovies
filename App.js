@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import { Text, View, Image } from "react-native";
+import { Text, View, Image, useColorScheme } from "react-native";
 import AppLoading from "expo-app-loading";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 import { Asset, useAssets } from "expo-asset";
-import { NavigationContainer } from "@react-navigation/native";
+import {
+  NavigationContainer,
+  DarkTheme,
+  DefaultTheme,
+} from "@react-navigation/native";
 import Tabs from "./navigation/Tabs";
 
 export default function App() {
@@ -48,6 +52,8 @@ export default function App() {
     setReady(true);
   };
 
+  const isDark = useColorScheme() === "dark";
+
   if (!ready) {
     return (
       <AppLoading
@@ -59,6 +65,7 @@ export default function App() {
   }
 
   return (
+    //theme={isDark ? DarkTheme : DefaultTheme}
     <NavigationContainer>
       <Tabs />
     </NavigationContainer>

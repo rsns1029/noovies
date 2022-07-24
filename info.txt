@@ -67,4 +67,27 @@ To render navigator, you have render navigation container first (just a rule)
 
 -- headerTitleStyle : style for the header
 
+@2.7
+- exporting colors
+-- code : simple exporting
+       export const color = "white";
+
+- Dark or Light mode
+-- code : const isDark = useColorScheme() === "dark";
+
+@2.8
+- Mode theme
+-- <NavigationContainer theme={isDark ? DarkTheme : DefaultTheme}>
+
+- Icons
+-- tabBarIcons : 
+     tabBarIcon: ({ focused, color, size }) => {
+            return <Ionicons name="film" size={size} color={color} />;
+          }, --> just put what Navigator gives for simpler work
+
+@2.9
+- *** combine Stack Navigator with Tab Navigator ***
+
+
+
 
