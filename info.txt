@@ -87,6 +87,31 @@ To render navigator, you have render navigation container first (just a rule)
 
 @2.9
 - *** combine Stack Navigator with Tab Navigator ***
+stack navigator - very customizable but little bit slow (implemented in JS)
+native-stack-navigator - implemented in native but little less customizable
+-- install native-stack
+: npm install @react-navigation/native-stack
+
+@2.10
+- create stack-navigator
+-- import code : import { createNativeStackNavigator } from "@react-navigation/native-stack";
+-- Navigate code
+
+const ScreenTwo = ({ navigation: { navigate } }) => (
+  <TouchableOpacity onPress={() => navigate("Three")}>
+    <Text>Two</Text>
+  </TouchableOpacity>
+);
+
+const ScreenThree = ({ navigation: { goBack } }) => (
+  <TouchableOpacity onPress={() => goBack()}>
+    <Text>Three</Text>
+  </TouchableOpacity>
+);
+
+
+
+
 
 
 

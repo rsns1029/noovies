@@ -10,6 +10,7 @@ import {
   DefaultTheme,
 } from "@react-navigation/native";
 import Tabs from "./navigation/Tabs";
+import Stacks from "./navigation/Stacks";
 
 export default function App() {
   const [ready, setReady] = useState(false);
@@ -67,7 +68,8 @@ export default function App() {
   return (
     //theme={isDark ? DarkTheme : DefaultTheme}
     <NavigationContainer>
-      <Tabs />
+      {/* <Tabs /> */}
+      <Stacks />
     </NavigationContainer>
   );
 }
