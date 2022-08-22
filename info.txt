@@ -109,6 +109,60 @@ const ScreenThree = ({ navigation: { goBack } }) => (
   </TouchableOpacity>
 );
 
+@2.11
+-configuring Stack Navigator
+-- screenOptions for all screen and option for only one screen
+ ex. animation , presentation , etc...
+
+
+@2.12
+-******** stacks and navigator (combine)
+Method 1
+-- render Tabs first
+-- make screen inside tab navigation and render stack
+code :
+    <NavigationContainer>      
+      <Tabs />
+    </NavigationContainer>
+
+      <Tab.Screen
+        name="Movies"
+        component={Stack}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => {
+            return <Ionicons name="film-outline" size={size} color={color} />;
+          },
+        }}
+      />
+
+-- it rembers the state of stack even after changing tab
+
+Method2
+-- render Stack and Tab together
+  <Nav.Navigator screenOptions={{ headerShown: false }}>
+    <Nav.Screen name="Tabs" component={Tabs}></Nav.Screen>
+    <Nav.Screen name="Stack" component={Stack}></Nav.Screen>
+  </Nav.Navigator>
+
+-- pass navigate params and then """jump""" over Stack
+
+const Movies = ({ navigation: { navigate } }) => (
+  <TouchableOpacity
+    style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+    onPress={() => navigate("Stack", "One")}
+  >
+    <Text>Movies</Text>
+  </TouchableOpacity>
+);
+
+
+-- code*** : navigate("Stack", { screen: "One" })}
+
+@2.12
+- Recap
+
+
+
 
 
 

@@ -14,17 +14,33 @@ const ScreenTwo = ({ navigation: { navigate } }) => (
   </TouchableOpacity>
 );
 
-const ScreenThree = ({ navigation: { setOptions } }) => (
-  <TouchableOpacity onPress={() => setOptions({ title: "Hello" })}>
-    <Text>Three</Text>
+const ScreenThree = ({ navigation: { setOptions, navigate } }) => (
+  <TouchableOpacity
+    onPress={() => {
+      setOptions({ title: "Hello" });
+      navigate("Tabs", { screen: "Search" });
+    }}
+  >
+    <Text>Change Title</Text>
   </TouchableOpacity>
 );
 
 const NativeStack = createNativeStackNavigator();
 
-const Stacks = () => (
-  <NativeStack.Navigator>
-    <NativeStack.Screen name="One" component={ScreenOne}></NativeStack.Screen>
+const Stack = () => (
+  <NativeStack.Navigator
+    screenOptions={{
+      presentation: "containedModal",
+      animation: "slide_from_bottom",
+      headerTintColor: "red",
+      headerBackTitle: false,
+    }}
+  >
+    <NativeStack.Screen
+      options={{ title: "1" }}
+      name="One"
+      component={ScreenOne}
+    ></NativeStack.Screen>
     <NativeStack.Screen name="Two" component={ScreenTwo}></NativeStack.Screen>
     <NativeStack.Screen
       name="Three"
@@ -33,4 +49,4 @@ const Stacks = () => (
   </NativeStack.Navigator>
 );
 
-export default Stacks;
+export default Stack;
