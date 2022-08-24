@@ -158,13 +158,28 @@ const Movies = ({ navigation: { navigate } }) => (
 
 -- code*** : navigate("Stack", { screen: "One" })}
 
-@2.12
+@2.13
 - Recap
 
+@2.14
+- styled component
+-- download styled component from expo
+: npm i styled-components
 
+-- import from native (we can just use it like css)
+code : 
+import styled from "styled-components/native";
+const Btn = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;  
+`;
 
-
-
+-- send props to styled component
+<Title selected={false}>Movies</Title>
+const Title = styled.Text`
+  color: ${(props) => (props.selected ? "blue" : "red")};
+`;
 
 
 

@@ -8,7 +8,7 @@ import {
   DarkTheme,
   DefaultTheme,
 } from "@react-navigation/native";
-
+import Tabs from "./navigation/Tabs";
 import Root from "./navigation/Root";
 import * as SplashScreen from "expo-splash-screen";
 
@@ -55,6 +55,10 @@ export default function App() {
       require("./splash2.png"),
       "https://images.velog.io/images/jha0402/post/f0fb03e2-852d-4a05-8e7a-a6c7195504aa/react.jpeg",
     ]);
+    // await Font.loadAsync(Ionicons.font);
+    // await Asset.loadAsync(require("./splash2.png"));
+    // await Image.prefetch("https://url")
+
     await Promise.all([...fonts, ...images]);
   };
 
@@ -70,19 +74,15 @@ export default function App() {
       await SplashScreen.hideAsync();
     }
   }, [ready]);
-  console.log("Ready ? : " + ready);
 
   if (!ready) {
-    console.log("returning");
     return null;
   }
-  console.log("now return this");
+
   return (
     //theme={isDark ? DarkTheme : DefaultTheme}
-    <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-      <NavigationContainer>
-        <Root />
-      </NavigationContainer>
-    </View>
+    <NavigationContainer onLayout={onLayoutRootView}>
+      <Root />
+    </NavigationContainer>
   );
 }
