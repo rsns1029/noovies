@@ -11,6 +11,8 @@ import {
 
 import Root from "./navigation/Root";
 import * as SplashScreen from "expo-splash-screen";
+import { ThemeProvider } from "styled-components/native";
+import { darkTheme, lightTheme } from "./styled";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -79,10 +81,13 @@ export default function App() {
   console.log("now return this");
   return (
     //theme={isDark ? DarkTheme : DefaultTheme}
+
     <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-      <NavigationContainer>
-        <Root />
-      </NavigationContainer>
+      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+        <NavigationContainer>
+          <Root />
+        </NavigationContainer>
+      </ThemeProvider>
     </View>
   );
 }

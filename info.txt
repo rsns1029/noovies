@@ -181,6 +181,52 @@ const Title = styled.Text`
   color: ${(props) => (props.selected ? "blue" : "red")};
 `;
 
+@2.15
+-Themes
+-- Theme is just java script object
+EX : styled.js
+
+-- Wrap ThemeProvider around app 
+<ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+</ThemeProvider>
+
+-- use props for the css
+const Btn = styled.TouchableOpacity`
+  background-color: ${(props) => props.theme.mainBgColor};
+`;
+
+@2.16
+-Typescript
+
+--Adding typescript to an existing project
+:npm install -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer
+
+-- create tsconfig.json
+copy and paste from https://reactnative.dev/docs/typescript
+
+-- index.js has to stay as js
+
+-- for styled-component import error :
+source site :(https://styled-components.com/docs/api#typescript)
+:npm install --save-dev @types/styled-components @types/styled-components-react-native
+
+-- for theme property error
+create declaration file styled.d.ts file
+copy past from the site above
+put property name and type in the interface
+:
+declare module "styled-components" {
+  export interface DefaultTheme {
+    mainBgColor: string;
+    textColor: string;
+  }
+}
+
+-- for prop type error
+write React.FC<props={}>
+: const Movies: React.FC<NativeStackScreenProps<any, "Movies">> = ({
+
+
 
 
 
