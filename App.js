@@ -24,7 +24,7 @@ export default function App() {
       try {
         await startLoading();
         console.log("ok");
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        // await new Promise((resolve) => setTimeout(resolve, 2000));
         console.log("ok2");
       } catch (e) {
         console.warn(e);
