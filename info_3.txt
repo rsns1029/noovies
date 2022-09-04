@@ -19,6 +19,9 @@ https://reactnative.dev/docs/scrollview
 ---import
 :import Swiper from "react-native-web-swiper";
 --- put component
+:const Container = styled.ScrollView`
+  background-color: ${(props) => props.theme.mainBgColor};
+`;
 : <Container>
     <Swiper containerStyle={{ width: "100%", height: 300 }}>
       <View style={{ backgroundColor: "red" }}></View>
@@ -30,5 +33,56 @@ https://reactnative.dev/docs/scrollview
 :const { height } = Dimensions.get("window");
 
 
+@3.3
+-Movies Screen Part One
 
+-- Loader
+: <ActivityIndicator />
+
+-- configure default background color at TAB (higher Level)
+ : <Tab.Navigator
+      sceneContainerStyle={{
+        backgroundColor: isDark ? BLACK_COLOR : "white",
+      }}
+
+-- fetch now Plaaying and json items
+:   const getNowPlaying = async () => {
+    const { results } = await (
+      await fetch(
+        `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1&region=KR`
+      )
+    ).json();
+    setNowPlaying(results);
+    setLoading(false);
+  };
+
+-- make utils and configure basic url path
+: export const makeImgPath = (img: string, width: string = "w500") =>
+  `https://image.tmdb.org/t/p/${width}${img}`;
+
+
+-- return map
+:        {nowPlaying.map((movie) => {
+          return (
+            <View key={movie.id}>
+              <BgImg source={{ uri: makeImgPath(movie.backdrop_path) }} />
+            </View>
+          );
+        })}
+
+-- blur
+--- install expo blur
+: npm install expo-blur
+
+---whatever you want to blur has to be *outside of blur view
+If you want to blur image?
+<View key={movie.id}>
+  <BgImg source={{ uri: makeImgPath(movie.backdrop_path) }} />
+  <BlurView
+    intensity={300}
+    style={{ width: "100%", height: "100%", position: "absolute" }}
+  >
+    <Title>{movie.original_title}</Title>
+  </BlurView>
+</View>
 
