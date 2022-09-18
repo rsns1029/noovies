@@ -34,7 +34,7 @@ https://reactnative.dev/docs/scrollview
 
 
 @3.3
--Movies Screen Part One
+-Movies Screen Part Two
 
 -- Loader
 : <ActivityIndicator />
@@ -85,4 +85,17 @@ If you want to blur image?
     <Title>{movie.original_title}</Title>
   </BlurView>
 </View>
+
+@3.4
+-Movies Screen Part Three
+
+--install swiper (more features)
+:npm i --save react-native-swiper@next
+
+--extend styled component
+const Votes = styled(Overview)``
+
+--wrapper and column
+--- key features of wrapper :  justify-content , align-items
+
 
