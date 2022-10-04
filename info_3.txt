@@ -98,4 +98,29 @@ const Votes = styled(Overview)``
 --wrapper and column
 --- key features of wrapper :  justify-content , align-items
 
+@3.5
+-Refactor
+-- using interface to bring props
+
+interface SlideProps {
+  backdrop_path: string;
+  poster_path: string;
+  original_title: string;
+  overview: string;
+  vote_average: number;
+}
+
+const Slide: React.FC<SlideProps> = ({
+  backdrop_path,
+  poster_path,
+  original_title,
+  overview,
+  vote_average,
+}) => {
+
+
+-- promise all 
+await Promise.all([getNowPlaying(), getUpcoming(), getTrending()]);
+
+
 
