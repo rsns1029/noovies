@@ -122,5 +122,9 @@ const Slide: React.FC<SlideProps> = ({
 -- promise all 
 await Promise.all([getNowPlaying(), getUpcoming(), getTrending()]);
 
+@3.6
+Trending Movies
+
+-- ScrollView
 
 
