@@ -7,6 +7,8 @@
 -- from second time
 npm start
 : npm run android
+or
+: npx create-react-native-app
 
 
 @2.1

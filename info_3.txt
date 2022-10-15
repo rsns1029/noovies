@@ -123,8 +123,21 @@ const Slide: React.FC<SlideProps> = ({
 await Promise.all([getNowPlaying(), getUpcoming(), getTrending()]);
 
 @3.6
-Trending Movies
+-Trending Movies
 
 -- ScrollView
 
+#3.7
+- comming soon
 
+-- using ``
+`${movie.overview.slice(0, 120)}...`
+
+-- using specific date
+(android/app/build.gradle 에서
+def jscFlavor = 'org.webkit:android-jsc:+')
+
+{new Date(movie.release_date).toLocaleDateString("ko")}
+{new Date(movie.release_date).toLocaleDateString("ko", {
+            month: "long", day : "numeric" , year: "numeric"
+          })}
