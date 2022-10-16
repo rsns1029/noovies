@@ -141,3 +141,29 @@ def jscFlavor = 'org.webkit:android-jsc:+')
 {new Date(movie.release_date).toLocaleDateString("ko", {
             month: "long", day : "numeric" , year: "numeric"
           })}
+
+#3.8
+-- refreshing
+refreshControl attribute in scroll view
+:
+    <ScrollView
+      refreshControl={
+        <RefreshControl onRefresh={onRefresh} refreshing={refreshing} />
+      }
+      bounces={true}
+    >
+
+
+
+
+#3.9
+- ScrollView vs FlatList
+
+--ScrollView is bad at performance
+renders all children at once
+
+--flatList renders the items lazily.
+lazy performance does not render everyhing at once
+
+
+
