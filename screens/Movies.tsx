@@ -124,6 +124,7 @@ const Movies: React.FC<NativeStackScreenProps<any, "Movies">> = () => {
         <ListTitle>Trending Movies</ListTitle>
         <TrendingScroll
           data={trending}
+          keyExtractor={(item) => item.id + ""}
           showsHorizontalScrollIndicator={false}
           horizontal
           contentContainerStyle={{ paddingHorizontal: 20 }}

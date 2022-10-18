@@ -184,4 +184,6 @@ data and renderitem
 ItemSeparatorComponent={() => <View style={{ width: 20 }} />}
 
 
-
+--keyExtractor for key of component
+keyExtractor={(item) => item.id + ""}
+--- needs to be string for a key
