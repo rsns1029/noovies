@@ -7,12 +7,11 @@ import { Text, View, Image, useColorScheme } from "react-native";
 import { YELLOW_COLOR, BLACK_COLOR, DARK_GREY, LIGHT_GREY } from "../colors";
 import { Ionicons } from "@expo/vector-icons";
 import Stack from "./Stack";
+import { isDark } from "../themeSelector";
 
 const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
-  const isDark = useColorScheme() === "dark";
-
   return (
     <Tab.Navigator
       sceneContainerStyle={{

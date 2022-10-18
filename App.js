@@ -13,6 +13,7 @@ import Root from "./navigation/Root";
 import * as SplashScreen from "expo-splash-screen";
 import { ThemeProvider } from "styled-components/native";
 import { darkTheme, lightTheme } from "./styled";
+import { isDark } from "./themeSelector";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -59,8 +60,6 @@ export default function App() {
     ]);
     await Promise.all([...fonts, ...images]);
   };
-
-  const isDark = useColorScheme() === "dark";
 
   const onLayoutRootView = useCallback(async () => {
     if (ready) {

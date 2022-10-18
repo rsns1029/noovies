@@ -165,5 +165,23 @@ renders all children at once
 --flatList renders the items lazily.
 lazy performance does not render everyhing at once
 
+#3.10
+- flatList
+
+--requires 2 paraps
+data and renderitem
+
+-- make renderitem function of component returning props
+          renderItem={({ item }) => (
+            <VMedia
+              posterPath={item.poster_path}
+              originalTitle={item.original_title}
+              voteAverage={item.vote_average}
+            />
+          )}
+
+-- itemseperatorcomponent
+ItemSeparatorComponent={() => <View style={{ width: 20 }} />}
+
 
 

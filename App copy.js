@@ -62,8 +62,6 @@ export default function App() {
     await Promise.all([...fonts, ...images]);
   };
 
-  const isDark = useColorScheme() === "dark";
-
   const onLayoutRootView = useCallback(async () => {
     if (ready) {
       // This tells the splash screen to hide immediately! If we call this after

@@ -1,9 +1,10 @@
 import { BlurView } from "expo-blur";
 import React from "react";
-import { StyleSheet, useColorScheme, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import styled from "styled-components/native";
 import { makeImgPath } from "../utils";
 import Poster from "./Poster";
+import { isDark } from "../themeSelector";
 
 const BgImg = styled.Image``;
 
@@ -47,7 +48,6 @@ const Slide: React.FC<SlideProps> = ({
   voteAverage,
   overview,
 }) => {
-  const isDark = useColorScheme() === "dark";
   return (
     <View style={{ flex: 1 }}>
       <BgImg
