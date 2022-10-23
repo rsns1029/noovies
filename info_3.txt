@@ -187,3 +187,32 @@ ItemSeparatorComponent={() => <View style={{ width: 20 }} />}
 --keyExtractor for key of component
 keyExtractor={(item) => item.id + ""}
 --- needs to be string for a key
+
+
+#3.11
+- flatList 2
+-- ListHeaderComponent to render flastlist insode a flat List
+--- so it does not cause nested warning
+
+
+-- flatlist has refreshing attribute alreaady
+:      onRefresh={onRefresh}
+      refreshing={refreshing}
+
+
+#3.12
+-react query 1
+-- install
+: npm i react-query
+
+
+-- to use it
+--- create query client first
+:const queryClient = new QueryClient();
+
+
+--- wrap application with query client
+: App.js
+ <QueryClientProvider client={queryClient}>
+
+
