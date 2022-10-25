@@ -215,4 +215,38 @@ keyExtractor={(item) => item.id + ""}
 : App.js
  <QueryClientProvider client={queryClient}>
 
+#3.13
+-React Query 2
+-- useQuery
+:  const { isLoading: nowPlayingLoading, data: nowPlayingData } = useQuery(
+    "nowPlaying", <-- caching
+    moviesApi.nowPlaying
+  );
+
+-- caching
+Once fetched. You are not gonna fetch again
+
+-- to not cache and start from the beginning
+: screebOptions (In Tab)
+  unmountOnBlur : true
+
+#3.14
+-Refresh
+
+-- categorize useQuery
+  const {
+    isLoading: trendingLoading,
+    data: trendingData,
+    isRefetching: isRefetchingTrending,
+  } = useQuery(["movies", "trending"], moviesApi.trending);
+
+-- refresh by category
+:  const onRefresh = async () => {
+    queryClient.refetchQueries(["movies"]);
+  };
+
+
+
+
+
 
