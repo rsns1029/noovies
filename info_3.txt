@@ -245,8 +245,11 @@ Once fetched. You are not gonna fetch again
     queryClient.refetchQueries(["movies"]);
   };
 
+#3.15
+-TypeScript
 
 
-
+#3.16
+-TV screen 1
 
 
