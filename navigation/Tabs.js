@@ -7,11 +7,12 @@ import { Text, View, Image, useColorScheme } from "react-native";
 import { YELLOW_COLOR, BLACK_COLOR, DARK_GREY, LIGHT_GREY } from "../colors";
 import { Ionicons } from "@expo/vector-icons";
 import Stack from "./Stack";
-import { isDark } from "../themeSelector";
+import { isWeb } from "../webCheck";
 
 const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
+  const isDark = isWeb || useColorScheme() === "dark";
   return (
     <Tab.Navigator
       sceneContainerStyle={{
@@ -19,10 +20,14 @@ const Tabs = () => {
       }}
       screenOptions={{
         // unmountOnBlur: true,
-        tabBarStyle: { backgroundColor: isDark ? BLACK_COLOR : "white" },
+        tabBarStyle: {
+          backgroundColor: isDark ? BLACK_COLOR : "white",
+        },
         tabBarActiveTintColor: isDark ? YELLOW_COLOR : BLACK_COLOR,
         tabBarInactiveTintColor: isDark ? DARK_GREY : LIGHT_GREY,
-        headerStyle: { backgroundColor: isDark ? BLACK_COLOR : "white" },
+        headerStyle: {
+          backgroundColor: isDark ? BLACK_COLOR : "white",
+        },
         headerTitleStyle: {
           color: isDark ? "white" : BLACK_COLOR,
         },

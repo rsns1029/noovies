@@ -21,14 +21,11 @@ export default function App() {
     async function prepare() {
       try {
         await startLoading();
-        console.log("ok");
         await new Promise((resolve) => setTimeout(resolve, 2000));
-        console.log("ok2");
       } catch (e) {
         console.warn(e);
       } finally {
         // Tell the application to render
-        console.log("ok3");
         setReady(true);
       }
     }

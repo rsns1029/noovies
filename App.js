@@ -13,7 +13,7 @@ import Root from "./navigation/Root";
 import * as SplashScreen from "expo-splash-screen";
 import { ThemeProvider } from "styled-components/native";
 import { darkTheme, lightTheme } from "./styled";
-import { isDark } from "./themeSelector";
+import { isWeb } from "./webCheck";
 
 const queryClient = new QueryClient();
 
@@ -73,16 +73,14 @@ export default function App() {
       await SplashScreen.hideAsync();
     }
   }, [ready]);
-  console.log("Ready ? : " + ready);
+
+  const isDark = isWeb || useColorScheme() === "dark";
 
   if (!ready) {
-    console.log("returning");
     return null;
   }
-  console.log("now return this");
-  return (
-    //theme={isDark ? DarkTheme : DefaultTheme}
 
+  return (
     <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={isDark ? darkTheme : lightTheme}>

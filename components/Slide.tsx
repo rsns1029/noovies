@@ -1,13 +1,12 @@
 import { BlurView } from "expo-blur";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, useColorScheme, View } from "react-native";
 import styled from "styled-components/native";
 import { makeImgPath } from "../utils";
 import Poster from "./Poster";
-import { isDark } from "../themeSelector";
+import { isWeb } from "../webCheck";
 
 const BgImg = styled.Image``;
-
 const Title = styled.Text<{ isDark: boolean }>`
   font-size: 16px;
   font-weight: 600;
@@ -48,6 +47,7 @@ const Slide: React.FC<SlideProps> = ({
   voteAverage,
   overview,
 }) => {
+  const isDark = isWeb || useColorScheme() === "dark";
   return (
     <View style={{ flex: 1 }}>
       <BgImg
