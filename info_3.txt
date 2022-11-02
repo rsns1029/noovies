@@ -295,3 +295,14 @@ const { isLoading } = useQuery(["searchMovies", query], moviesApi.search);
 -- use refetch() to activate the query when pressend button
 
 
+#3.20
+-Search part3
+
+-- navigate to detail
+
+:const navigation = useNavigation();
+  const goToDetail = () => {
+    navigation.navigate("Stack", { screen: "Detail" });
+  };
+
+<TouchableOpacity onPress={goToDetail}>
