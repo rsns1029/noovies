@@ -306,3 +306,43 @@ const { isLoading } = useQuery(["searchMovies", query], moviesApi.search);
   };
 
 <TouchableOpacity onPress={goToDetail}>
+
+#3.21
+-Detail Screen 1
+-- send props from navigation
+  const goToDetail = () => {
+    //@ts-ignore
+    navigation.navigate("Stack", {
+      screen: "Detail",
+      params: {
+        originalTitle,
+      },
+    });
+  };
+
+
+-- props parameter
+: const Detail = ({ route: { params } }) => {  .....
+
+-- navigation props
+--- setoptions
+const Detail = ({
+  navigation: { setOptions },
+  route: {
+    params: { originalTitle },
+  },
+--->
+
+  useEffect(() => {
+    setOptions({
+      title: originalTitle,
+    });
+  }, []);
+
+
+
+
+
+
+
+
