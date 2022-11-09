@@ -340,6 +340,21 @@ const Detail = ({
   }, []);
 
 
+#3.22
+- Detail Screen 2
+-- Typescript sending props 
+:type RootStackParamList = {
+  Detail: { originalTitle: string };
+};
+type DetailScreenProps = NativeStackScreenProps<RootStackParamList, "Detail">;
+
+const Detail: React.FC<DetailScreenProps> = ({
+
+
+
+
+
+
 
 
 
