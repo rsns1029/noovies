@@ -350,12 +350,34 @@ type DetailScreenProps = NativeStackScreenProps<RootStackParamList, "Detail">;
 
 const Detail: React.FC<DetailScreenProps> = ({
 
+#3.23
+- Detail Screen 3
+-- install linear gradient
+:expo install expo-linear-gradient
 
 
+-- put below what is to be gradient
+        <LinearGradient
+          // Background Linear Gradient
+          colors={["transparent", BLACK_COLOR]}
+          style={StyleSheet.absoluteFill}
+        />
 
+#3.24
+- Detail Screen 4
 
+#3.25
+- Detail Screen 5
 
+--Linking
+:  const openYTLink = async (videoID: string) => {
+    const baseUrl = `http://m.youtube.com/watch?v=${videoID}`;
+    await Linking.openURL(baseUrl);
+  };
 
+--Web Browser
+--- open browser in the app
+: expo install expo-web-browser
 
 
 
