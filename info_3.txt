@@ -380,6 +380,30 @@ const Detail: React.FC<DetailScreenProps> = ({
 : expo install expo-web-browser
 
 
+#3.26
+-Sharing
+-- sharing 
+ await Share.share({
+        url: homepage,
+        title:
+          "original_title" in params
+            ? params.original_title
+            : params.original_name,
+      });
 
+-- share after data is rendered. Needs to put one more useEffect
+:  useEffect(() => {
+    setOptions({
+      title: "original_title" in params ? "Movie" : "TV show",
+    });
+  }, []);
+
+  useEffect(() => {
+    if (data) {
+      setOptions({
+        headerRight: () => <ShareButton />,
+      });
+    }
+  }, [data]);
 
 
