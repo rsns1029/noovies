@@ -407,3 +407,14 @@ const Detail: React.FC<DetailScreenProps> = ({
   }, [data]);
 
 
+#3.27
+-recap
+
+#3.28
+- Infinite Scroll 1
+-- FlatList Reaching attribute
+:  <FlatList
+      onEndReached={loadMore}
+      onEndReachedThreshold={1}
+
+-- change from useQuery to useInfiniteQuery

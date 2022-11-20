@@ -40,14 +40,18 @@ const Tv = () => {
 
   return (
     <ScrollView
-      contentContainerStyle={{ paddingVertical: 30 }}
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
       }
+      contentContainerStyle={{ paddingVertical: 30 }}
     >
-      <HList title="Trending TV" data={trendingData.results} />
-      <HList title="Airing Today" data={todayData.results} />
-      <HList title="Top Rated TV" data={topData.results} />
+      {trendingData ? (
+        <HList title="Trending TV" data={trendingData.results} />
+      ) : null}
+      {todayData ? (
+        <HList title="Airing Today" data={todayData.results} />
+      ) : null}
+      {topData ? <HList title="Top Rated TV" data={topData.results} /> : null}
     </ScrollView>
   );
 };
