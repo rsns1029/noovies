@@ -4,7 +4,7 @@ import { ActivityIndicator, Alert, Dimensions, FlatList } from "react-native";
 import Swiper from "react-native-swiper";
 import { useInfiniteQuery, useQuery, useQueryClient } from "react-query";
 import styled from "styled-components/native";
-import { MovieResponse, moviesApi } from "../api";
+import { MovieResponse, moviesApi , Movie} from "../api";
 import HList from "../components/HList";
 import HMedia from "../components/HMedia";
 import Loader from "../components/Loader";
@@ -40,8 +40,9 @@ const HSeparator = styled.View`
 
 const Movies: React.FC<NativeStackScreenProps<any, "Movies">> = () => {
   const queryClient = useQueryClient();
-
+  const [loader, setLoader] = useState<boolean>(false);
   const [refreshing, setRefreshing] = useState(false);
+  const [uniqueUpcomingMovies, setUniqueUpcomingMovies] = useState<Movie[]>([]);
 
   const { isLoading: nowPlayingLoading, data: nowPlayingData } =
     useQuery<MovieResponse>(["movies", "nowPlaying"], moviesApi.nowPlaying);
@@ -57,23 +58,35 @@ const Movies: React.FC<NativeStackScreenProps<any, "Movies">> = () => {
     {
       getNextPageParam: (currentPage) => {
         const nextPage = currentPage.page + 1;
-
         return nextPage > currentPage.total_pages ? null : nextPage;
       },
     }
   );
-  const { isLoading: trendingLoading, data: trendingData } =
-    useQuery<MovieResponse>(["movies", "trending"], moviesApi.trending);
+  
+  const { isLoading: trendingLoading, data: trendingData } = useQuery<MovieResponse>(["movies", "trending"], moviesApi.trending);
 
   useEffect(() => {
-    console.log("UseEffect");
-    console.log("legnth : " + upcomingData?.pages.length);
     if (upcomingData) {
-      if (upcomingData.pages.length > 3) {
-        upcomingData.pages.shift();
-      }
+      // Combine all fetched pages
+      const combinedData = upcomingData.pages
+        .map((page) => page.results)
+        .flat();
+
+      console.log( "combinedData : ", combinedData.length);
+
+      // Filter out duplicates
+      const newUniqueData = combinedData.filter(
+        (movie) => !uniqueUpcomingMovies.some((m) => m.id === movie.id)
+      );
+
+      console.log("newUniqueData : ", newUniqueData.length)
+
+      // Update state with new unique data
+      setUniqueUpcomingMovies((prevMovies) => [...prevMovies, ...newUniqueData]);
     }
   }, [upcomingData]);
+
+
 
   const onRefresh = async () => {
     setRefreshing(true);
@@ -82,9 +95,15 @@ const Movies: React.FC<NativeStackScreenProps<any, "Movies">> = () => {
   };
   const loading = nowPlayingLoading || upcomingLoading || trendingLoading;
 
+  const loadData = async () =>{
+    setLoader(true);
+    fetchNextPage();
+    setLoader(false);
+  }
+
   const loadMore = () => {
-    if (hasNextPage) {
-      fetchNextPage();
+    if (hasNextPage && !loader) {
+      loadData();
     }
   };
 
@@ -92,6 +111,7 @@ const Movies: React.FC<NativeStackScreenProps<any, "Movies">> = () => {
     <Loader />
   ) : upcomingData ? (
     <FlatList
+      
       onEndReached={loadMore}
       onRefresh={onRefresh}
       refreshing={refreshing}
@@ -130,10 +150,11 @@ const Movies: React.FC<NativeStackScreenProps<any, "Movies">> = () => {
           <ComingSoonTitle>Coming soon</ComingSoonTitle>
         </>
       }
-      data={upcomingData.pages.map((page) => page.results).flat()}
-      keyExtractor={(item) => item.id + "" + new Date()}
+      data={uniqueUpcomingMovies }
+      keyExtractor={(item) => item.id + ""}
       ItemSeparatorComponent={HSeparator}
-      renderItem={({ item }) => (
+      renderItem={({ item }) => {
+        return (
         <HMedia
           posterPath={item.poster_path || ""}
           originalTitle={item.original_title}
@@ -141,7 +162,7 @@ const Movies: React.FC<NativeStackScreenProps<any, "Movies">> = () => {
           releaseDate={item.release_date}
           fullData={item}
         />
-      )}
+      )}}
     />
   ) : null;
 };

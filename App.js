@@ -20,6 +20,7 @@ const queryClient = new QueryClient();
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+  console.log("start")
   const [ready, setReady] = useState(false);
 
   useEffect(() => {

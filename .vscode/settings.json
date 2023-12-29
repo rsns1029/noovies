@@ -1,3 +1,94 @@
 {
-  "java.configuration.updateBuildConfiguration": "interactive"
+  "window.zoomLevel": 1,
+  "editor.minimap.enabled": false,
+  "window.titleBarStyle": "native",
+  "editor.codeActionsOnSave": {
+      
+
+  },
+  "editor.rulers": [],
+  "editor.linkedEditing": true,
+  "editor.unicodeHighlight.includeComments": true,
+  "emmet.variables": {
+      "lang": "en"
+  },
+  "workbench.colorCustomizations": {
+      "[Default Dark Modern]": {
+          "tab.activeBorderTop": "#00FF00",
+          "tab.unfocusedActiveBorderTop": "#00FF0088",
+          "textCodeBlock.background": "#00000055"
+      },
+      "editor.wordHighlightStrongBorder": "#FF6347",
+      "editor.wordHighlightBorder": "#FFD700",
+      "editor.selectionHighlightBorder": "#A9A9A9"
+  },
+  "workbench.editor.revealIfOpen": true,
+  "workbench.tree.indent": 20,
+  "[bat]": {
+      "files.eol": "\r\n"
+  },
+  "terminal.integrated.enablePersistentSessions": false,
+  "terminal.integrated.tabs.hideCondition": "never",
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.debug.settings.hotCodeReplace": "auto",
+  "java.sources.organizeImports.staticStarThreshold": 1,
+  "cSpell.diagnosticLevel": "Hint",
+  "trailing-spaces.includeEmptyLines": false,
+  "java.jdt.ls.java.home": "/Users/hank/Library/Java/JavaVirtualMachines/corretto-17.0.9/Contents/Home",
+  "spring-boot.ls.java.home": "/Users/hank/Library/Java/JavaVirtualMachines/corretto-17.0.9/Contents/Home",
+  "java.configuration.runtimes": [
+      {
+          "name": "JavaSE-17",
+          "path": "/Users/hank/Library/Java/JavaVirtualMachines/corretto-17.0.9/Contents/Home",
+          "default": true
+      }
+  ],
+  "java.import.gradle.java.home": "/Users/hank/Library/Java/JavaVirtualMachines/corretto-17.0.9/Contents/Home",
+  "terminal.integrated.profiles.osx": {
+      "JavaSE-1.8": {
+          "overrideName": true,
+          "env": {
+              "ZDOTDIR": "~/.zsh_jdkauto",
+              "PATH": "/Users/hank/Library/Application Support/Code/User/globalStorage/pleiades.java-extension-pack-jdk/java/8/bin:/Users/hank/Library/Application Support/Code/User/globalStorage/pleiades.java-extension-pack-jdk/maven/latest/bin:/Users/hank/Library/Application Support/Code/User/globalStorage/pleiades.java-extension-pack-jdk/gradle/latest/bin:${env:PATH}",
+              "JAVA_HOME": "/Users/hank/Library/Application Support/Code/User/globalStorage/pleiades.java-extension-pack-jdk/java/8"
+          },
+          "path": "zsh",
+          "args": [
+              "-l"
+          ]
+      },
+      "JavaSE-11": {
+          "overrideName": true,
+          "env": {
+              "ZDOTDIR": "~/.zsh_jdkauto",
+              "PATH": "/Users/hank/Library/Application Support/Code/User/globalStorage/pleiades.java-extension-pack-jdk/java/11/bin:/Users/hank/Library/Application Support/Code/User/globalStorage/pleiades.java-extension-pack-jdk/maven/latest/bin:/Users/hank/Library/Application Support/Code/User/globalStorage/pleiades.java-extension-pack-jdk/gradle/latest/bin:${env:PATH}",
+              "JAVA_HOME": "/Users/hank/Library/Application Support/Code/User/globalStorage/pleiades.java-extension-pack-jdk/java/11"
+          },
+          "path": "zsh",
+          "args": [
+              "-l"
+          ]
+      },
+      "JavaSE-17": {
+          "overrideName": true,
+          "env": {
+              "ZDOTDIR": "~/.zsh_jdkauto",
+              "PATH": "/Users/hank/Library/Java/JavaVirtualMachines/corretto-17.0.9/Contents/Home/bin:/Users/hank/Library/Application Support/Code/User/globalStorage/pleiades.java-extension-pack-jdk/maven/latest/bin:/Users/hank/Library/Application Support/Code/User/globalStorage/pleiades.java-extension-pack-jdk/gradle/latest/bin:${env:PATH}",
+              "JAVA_HOME": "/Users/hank/Library/Java/JavaVirtualMachines/corretto-17.0.9/Contents/Home"
+          },
+          "path": "zsh",
+          "args": [
+              "-l"
+          ]
+      }
+  },
+  "maven.executable.path": "/Users/hank/Library/Application Support/Code/User/globalStorage/pleiades.java-extension-pack-jdk/maven/latest/bin/mvn",
+  "java.import.gradle.home": "/Users/hank/Library/Application Support/Code/User/globalStorage/pleiades.java-extension-pack-jdk/gradle/latest",
+  "terminal.integrated.scrollback": 100000000000000000000,
+  "terminal.integrated.persistentSessionScrollback": 100000000000000000000,
+  "explorer.confirmDelete": false,
+  "editor.fastScrollSensitivity": 1,
+  "workbench.list.fastScrollSensitivity": 1,
+  "editor.mouseWheelScrollSensitivity": 0.45,
+  "java.compile.nullAnalysis.mode": "automatic"
 }
